@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     const fetchUser = async () => {
       if (token) {
         try {
-          const response = await fetch('http://localhost:3000/me', {
+          const response = await fetch(`${API_BASE_URL}/me`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           if (response.ok) {
