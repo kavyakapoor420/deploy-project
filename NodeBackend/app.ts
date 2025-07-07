@@ -39,7 +39,11 @@ const pool = new Pool({
 });
 
 // --- Middleware ---
-app.use(cors({ origin: 'http://localhost:5173' })); // Adjust to your frontend URL
+app.use(cors({ origin:[
+     'http://localhost:5173',
+     "https://nested-comment-assignment.vercel.app",
+]
+ })); // Adjust to your frontend URL
 app.use(express.json());
 
 // --- Database Initialization ---
