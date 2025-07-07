@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect, createContext, useContext } from 'react';
 
-const API_BASE_URL = 'https://deploy-project-2-hgpy.onrender.com/'; 
+const API_BASE_URL = 'https://deploy-project-2-hgpy.onrender.com'; 
 
 
 
