@@ -6,6 +6,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import axios from 'axios'
 
 import pkg from 'pg';
 import type { QueryResult } from 'pg';
@@ -45,6 +46,12 @@ app.use(cors({ origin:[
 ]
  })); // Adjust to your frontend URL
 app.use(express.json());
+
+setInterval(() => {
+  axios.get('https://deploy-project-2-hgpy.onrender.com/')
+    .then(() => console.log('Self-ping to keep Render awake'))
+    .catch((err:any) => console.error('Self-ping failed', err));
+}, 5 * 60 * 1000); // every 5 minutes
 
 // --- Database Initialization ---
 async function initializeDatabase(): Promise<void> {
